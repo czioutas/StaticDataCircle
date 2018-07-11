@@ -1,0 +1,436 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Language" content="en">
+    <title> DataCircle</title>
+    <meta name="description" content="DataCircle is a one-stop Marketplace to consume, distribute, manage, and monitor both private and public DataAssets.">
+    <meta name="keywords" content="data marketplace, data exchange, data sharing, data share, data, data communication, marketplace, exchange, sharing, share, communication,
+          consume, distribute, manage, monitor, private, public, data assets, datasource, database, mysql">
+    <meta name="robots" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="assets/favicon.ico">
+
+    <meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0" />
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <meta http-equiv="pragma" content="no-cache" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="datacircle_io" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="DataCircle" />
+    <meta property="og:image" content="https://datacircle.io/images/full/datacircle_full_100.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Buy and sell datasets" />
+    <meta property="og:title" content="DataCircle" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css">
+    <link rel="stylesheet" href="assets/css/site.min.css" />
+    <link rel="stylesheet" href="assets/lib/noty/lib/noty.css" />
+    <script src="assets/lib/noty/lib/noty.min.js"></script>
+
+</head>
+
+<body class="layout-default Site">
+    <div class="container">
+        <nav class="navbar is-transparent">
+            <div class="navbar-brand">
+                <a class="" href="/">
+                    <img src="assets/images/full/datacircle_full_nav_15.png">
+                </a>
+                <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+            <div id="navbarExampleTransparentExample" class="navbar-menu">
+                <div class="navbar-start is-size-6 has-text-weight-semibold	">
+                    <a class="navbar-item" href="https://blog.datacircle.io/">
+                        Blog
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+
+                // Get all "navbar-burger" elements
+                var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+                // Check if there are any navbar burgers
+                if ($navbarBurgers.length > 0) {
+
+                    // Add a click event on each of them
+                    $navbarBurgers.forEach(function ($el) {
+                        $el.addEventListener('click', function () {
+
+                            // Get the target from the "data-target" attribute
+                            var target = $el.dataset.target;
+                            var $target = document.getElementById(target);
+
+                            // Toggle the class on both the "navbar-burger" and the "navbar-menu"
+                            $el.classList.toggle('is-active');
+                            $target.classList.toggle('is-active');
+
+                        });
+                    });
+                }
+
+            });
+        </script>
+    </div>
+    <div class="Site-content">
+        <section class="hero is-white is-fullheight">
+            <div class="hero-body">
+                <div class="container">
+                    <div class="columns">
+                        <div class="column is-6">
+                            <h3 class="title is-3">
+                                DataCircle assists companies managing their Data Assets.
+                            </h3>
+                            <br />
+                            <h3 class="subtitle is-4">
+                                Take advantage of our world-wide network in order to make strategic purchases of information that you need for your Growth,
+                                R&D, daily Business Development.
+                            </h3>
+                            <br />
+                            <h3 class="subtitle is-4">
+                                Connect with us, to free isolated data silos, monetize existing data and reveal the value of your data.
+                            </h3>
+
+                            <br />
+
+                            <h3 class="title is-3">
+                                Give us a short description and we will contact you immediately. 👉
+                            </h3>
+                        </div>
+                        <div class="column is-6">
+                            <div class="card is-shadowless is-primary">
+                                <form id="submitInterestForm" class="form-horizontal" onsubmit="submitData(event)">
+                                    <div class="card-content is-paddingless">
+                                        <div class="content">
+                                            <div class="field">
+                                                <div class="control">
+                                                    <textarea class="textarea is-medium" placeholder="Please describe shortly the dataset in question." name="description" rows="5" required></textarea>
+                                                </div>
+                                            </div>
+
+                                            <div class="field">
+                                                <div class="control">
+                                                    <input class="input is-medium" placeholder="The price can be a total or per size/row/lead" name="price" required>
+                                                </div>
+                                            </div>
+                                            <div class="field">
+                                                <div class="control has-icons-left">
+                                                    <input class="input is-medium" type="email" placeholder="Email" name="email" required>
+
+                                                    <span class="icon is-small is-left">
+                                                        <i class="fa fa-envelope"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <br />
+
+                                            <div class="field">
+                                                <p class="control has-text-centered">
+                                                    <button type="submit" class="button is-success is-outlined is-medium">Submit</button>
+
+                                                    <script>
+                                                        function submitData(evt) {
+                                                            evt.preventDefault();   
+
+                                                            var data = new FormData();
+                                                            data.append("email", document.getElementsByName('email')[0].value);
+                                                            data.append("description", document.getElementsByName('description')[1].value);
+                                                            data.append("price", document.getElementsByName('price')[0].value);
+
+                                                            var xhr = new XMLHttpRequest();
+                                                            xhr.withCredentials = false;
+
+                                                            xhr.addEventListener("readystatechange", function () {
+                                                                if (this.readyState === 4) {
+                                                                    document.getElementsByName('price')[0].value = 
+                                                                    document.getElementsByName('description')[1].value = 
+                                                                    document.getElementsByName('email')[0].value = "";
+
+                                                                    success("Thank you for contacting us. We will get back to you as soon as possible!");
+                                                                }
+                                                            });
+
+                                                            xhr.open("POST", "https://hooks.zapier.com/hooks/catch/3333240/wenec8/");
+                                                            xhr.send(data);
+                                                            
+                                                            return false;
+                                                        }
+                                                    </script>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <br />
+                                <div class="column has-text-centered">
+                                    <h4 class="subtitle is-5"> Or contact us via the online chat 💬 or via
+                                        <a href="mailto:support@datacircle.io" class="btn btn-simple btn-primary btn-lg">Email 📧</a>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="newsletter" class="hero is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <div id="mc_embed_signup" class="columns">
+                    <div class="column is-6 ">
+                        <p class="title">Keep up-to-date &amp; Get the latest news! 🚀
+                        </p>
+                        <p class="subtitle is-hidden-mobile">
+                            <span> Join our newsletter and get news in your inbox! </span>
+                            <br />
+                            <span>We hate spam too, so no worries!</span>
+                        </p>
+                    </div>
+
+                    <div class="column">
+                        <form class="contact-form" action="//datacircle.us16.list-manage.com/subscribe/post?u=a0083284d2078a8a3dcb4c1ea&amp;id=2bd1053357"
+                            method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
+                            target="_blank" novalidate>
+                            <div id="mc_embed_signup_scroll">
+                                <div class="field has-addons">
+                                    <div class="control is-expanded has-icons-left has-icons-right">
+                                        <input type="email" class="input is-medium" type="email" placeholder="Sign up to our newsletter" value="" name="EMAIL" id="mce-EMAIL"
+                                            required />
+                                        <span class="icon is-medium is-left">
+                                            <i class="fa fa-envelope"></i>
+                                        </span>
+                                    </div>
+                                    <div class="control">
+                                        <input type="submit" class="button is-info is-medium" name="subscribe" id="mc-embedded-subscribe" value="Submit 😃">
+                                    </div>
+                                </div>
+                                <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                                    <input type="text" name="b_a0083284d2078a8a3dcb4c1ea_2bd1053357" tabindex="-1" value="">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="hero is-info">
+        <div class="hero-body">
+            <div class="container">
+                <nav class="columns is-multiline">
+                    <div class="column is-12 has-text-centered">
+                        <h3 class="title is-5">
+                            Happy thoughts from our customers 😃
+                        </h3>
+                    </div>
+                    <a class="column is-12 has-text-centered" href="https://www.home.ht/">
+                        <img src="assets/images/partners/Home Logo White.png" alt="Home HT" style="min-width:180px; width: 15%;">
+
+                        <p class="title is-4" style="margin-top: 0.5em;">
+                            ❝DataCircle has helped us with our business through a data driven approach.❞
+                        </p>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </section>
+    <section class="hero is-purple">
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns is-mobile is-multiline">
+                    <div class="column is-12 has-text-centered">
+                        <h3 class="title is-5">👪 Partnered With</h3>
+                    </div>
+                    <div class="column is-12 has-text-centered">
+                        <a href="https://www.statice.io/">
+                            <img src="assets/images/partners/statice.png" alt="Statice" style="width: 178px; height: 62px; object-fit: cover;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <div class="content">
+                        <h3>
+                            DataCircle
+                        </h3>
+                        <p>
+                            DataCircle is Data Exchange Platform, where users are able to buy sell data to drive their marketing, case studies or their
+                            metrics.
+                        </p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content">
+                        <h3>
+                            About
+                        </h3>
+                        <ul class="">
+                            <li>
+                                <a href="https://medium.com/@datacircle_io" target="_blank">
+                                    Blog
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailto:support@datacircle.io">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content">
+                        <h3>
+                            Legal
+                        </h3>
+                        <ul class="links-vertical">
+                            <li>
+                                <a href="privacy.html">
+                                    Privacy Policy
+                                </a>
+                            </li>
+                            <li>
+                                <a href="tos.html">
+                                    Terms of Service
+                                </a>
+                            </li>
+                            <li>
+                                <a href="imprint.html">
+                                    Imprint
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content">
+                        <h3>
+                            External
+                        </h3>
+                        <ul>
+                            <li>
+                                <a target="_blank" class="" href="https://twitter.com/DataCircle_IO">
+                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a target="_blank" class="" href="https://www.facebook.com/datacircleio/">
+                                    <i class="fa fa-facebook-square" aria-hidden="true"> </i>
+                                </a>
+                            </li>
+                            <li>
+                                <a target="_blank" class="" href="https://www.linkedin.com/company/11282793/">
+                                    <i class="fa fa-linkedin-square" aria-hidden="true"> </i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="columns">
+                <div class="column">
+                    <a href="https://bulma.io" target="_blank">
+                        <img src="https://bulma.io/images/made-with-bulma--dark.png" alt="Made with Bulma" width="128" height="24">
+                    </a>
+                </div>
+                <div class="column">
+                    Copyright ©
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script> DataCircle All rights reserved.
+                </div>
+                <div class="column">
+                    <div class="is-pulled-right	">
+                        Made with
+                        <span style="color:#9c27b0;">
+                            <i class="fa fa-heart" aria-hidden="true"></i>
+                        </span> in Berlin
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+        window.$crisp = [];
+        window.CRISP_WEBSITE_ID = "ff15b733-6a29-4efb-99f5-29251c787f4f";
+        (function () {
+            d = document;
+            s = d.createElement("script");
+            s.src = "https://client.crisp.chat/l.js";
+            s.async = 1;
+            d.getElementsByTagName("head")[0].appendChild(s);
+        })();
+    </script>
+
+<script>
+        function warn (text){
+            text = '<div class="is-size-4">' + text + '</div>'
+            new Noty({
+                type: 'warning',
+                theme: 'metroui',
+                text: text,
+                layout: 'bottomLeft'
+            }).show();
+        }
+    
+        function danger (text){
+            text = '<div class="is-size-4">' + text + '</div>'
+            new Noty({
+                type: 'error',
+                theme: 'mint',
+                text: text,
+                layout: 'bottomLeft'
+            }).show();
+        }
+    
+        function info (text){
+            text = '<div class="is-size-4">' + text + '</div>'
+            new Noty({
+                type: 'info',
+                theme: 'metroui',
+                text: text,
+                layout: 'bottomLeft',
+                timeout: 3000,
+                progressBar: true
+            }).show();
+        }
+    
+        function success (text){
+            text = '<div class="is-size-4">' + text + '</div>'
+            new Noty({
+                type: 'success',
+                theme: 'metroui',
+                text: text,
+                layout: 'topCenter',
+                timeout: 3000,
+                progressBar: true
+            }).show();
+        }
+    </script>
+</body>
+
+</html>
